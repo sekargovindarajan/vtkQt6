@@ -12,5 +12,5 @@ You can see on line 17 of `forms/MainWindow.ui` that `QVTKOpenGLNativeWidget` is
 * Tested on Mac OSX 10.14.6 (Mojave), Clang 10.0.1.
 
 ## Issues
-1. Clearly the window of `QVTKOpenGLNativeWidget` is not positioned properly within the main window. Don't know if I am doing something wrong.
-2. Also the sphere may spin continuously, even when it is not being clicked and dragged.
+1. The window of `QVTKOpenGLNativeWidget` is always at the bottom left corner of the main window, not its correct position. Don't know if I am doing something wrong.
+2. Also, the sphere may spin continuously, even when it is not being clicked and dragged.
