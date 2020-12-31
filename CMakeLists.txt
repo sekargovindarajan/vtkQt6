@@ -5,21 +5,25 @@ project(${PROJ}) # version 2020.12.1)
 include(CTest)
 enable_testing()
 
+
 #********** include Qt *****************
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-#set(CMAKE_PREFIX_PATH $ENV{QTDIR})
+
+#*** Your path to Qt6 below
 set(CMAKE_PREFIX_PATH "/Users/sekar/Programs/Qt/6.0.0/clang_64/")
+
 find_package(OpenGL)
 find_package(Qt6 COMPONENTS Core GUI OpenGL Widgets Xml REQUIRED)
 
+
 #********** include Vtk *****************
-#set(VTK_DIR $ENV{VTK_DIR})
+#*** Your path to VTK below
 set(VTK_DIR "/Users/sekar/Programs/vtk/build/")
 find_package(VTK REQUIRED)
-#include(${VTK_USE_FILE}) #not needed since 8.9
+
 
 #********** include Project code
 set(FORMS_DIR "${CMAKE_SOURCE_DIR}/forms")
@@ -39,6 +43,7 @@ file(GLOB_RECURSE SOURCES
 # enhance search paths to our code
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_AUTOUIC_SEARCH_PATHS} ${FORMS_DIR})
 
+
 #********* executable *****************
 if (WIN32)
   # no cmd line on windows
@@ -46,22 +51,14 @@ if (WIN32)
 else()
   add_executable(${PROJ} ${SOURCES})
 endif()
-add_test(NAME vtkQt6Test1 COMMAND ${PROJ})
+add_test(NAME ${PROJ}Test1 COMMAND ${PROJ})
+
 
 #********** target includes *****************
 target_include_directories(${PROJ} PRIVATE ${FORMS_DIR} ${INCLUDE_DIR} ${SOURCE_DIR})
+
 
 #********** libraries for linking *****************
 target_link_libraries(${PROJ} Qt6::OpenGL Qt6::Widgets Qt6::Xml)
 target_link_libraries(${PROJ} ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
 target_link_libraries(${PROJ} ${VTK_LIBRARIES})
-
-#********** doxygen *****************
-#find_package(doxygen)
-#if(DOXYGEN_FOUND)
-#  configure_file(${CMAKE_SOURCE_DIR}/vtkQt6.doxy ${CMAKE_BINARY_DIR}/doxygen/vtkQt6.doxy)
-#  add_custom_target (doxyDoc
-#  ${DOXYGEN_EXECUTABLE} ${CMAKE_BINARY_DIR}/doxygen/vtkQt6.doxy
-#  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/doxygen
-#  COMMENT "Generating API documentation with Doxygen" VERBATIM)
-#endif(DOXYGEN_FOUND)
