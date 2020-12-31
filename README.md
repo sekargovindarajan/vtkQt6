@@ -1,5 +1,5 @@
 # README
-Draw Sphere (like Hello World) to test the combination of Vtk9 and Qt6.
+Draw Sphere App (I call it the Hello World of VTK) to test the combination of Vtk9 and Qt6.
 
 ## Qt6+VTK9
 You can see on line 17 of `forms/MainWindow.ui` that `QVTKOpenGLNativeWidget` is used. Make sure that
