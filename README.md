@@ -2,7 +2,7 @@
 Draw Sphere App (I call it the Hello World of VTK) to test the combination of Vtk9 and Qt6.
 
 ## Qt6+VTK9
-You can see on line 17 of `forms/MainWindow.ui` that `QVTKOpenGLNativeWidget` is used. Make sure that
+You can see on line 17 of `forms/MainWindow.ui` that `QVTKOpenGLNativeWidget` is used. Make sure that in your `CMakeLists.txt`:
 * `CMAKE_PREFIX_PATH` in line 16 points to **your Qt6 path**, and
 * `VTK_DIR` in line 24 points to **your VTK9 (build) path**.
 
