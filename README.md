@@ -1,5 +1,6 @@
 # README
 Draw Sphere App (I call it the Hello World of VTK) to test the combination of Vtk9 and Qt6.
+![](./Qt6+Vtk9.png)
 
 ## Qt6+VTK9
 You can see on line 17 of `forms/MainWindow.ui` that `QVTKOpenGLNativeWidget` is used. Make sure that in your `CMakeLists.txt`:
