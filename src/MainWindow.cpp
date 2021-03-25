@@ -78,7 +78,8 @@ MainWindow::onDrawSphereClick() {
 
 void
 MainWindow::onPickColor() {
-  QColor color = QColorDialog::getColor(Qt::white, this, "Pick a color for the Sphere");
+  QColor color = QColorDialog::getColor(Qt::white, this,
+    tr("Pick a color for the Sphere"), QColorDialog::DontUseNativeDialog);
   if (color.isValid()) {
     color.getRgbF(&m_sphR, &m_sphG, &m_sphB);
     this->onDrawSphereClick();
